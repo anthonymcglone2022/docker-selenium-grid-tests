@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- 
+	TODOS
+	1. change parallel="methods" and use @BeforeMethod TestNG
+	2. change parallel="classes" and use @BeforeClass TestNG
+	
+	parallel="tests" runs the <test> tags in parallel
+	Each <test></test> runs in its own thread, has its own WebDriver 
+	Multiple methods in PostCodeATest would run sequentially in this thread
+-->
+<suite name="All Test Suite" parallel="tests">
+
+    <test name="PostCodeATest run in Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.PostCodeATest"/>
+        </classes>
+    </test>
+    
+    <test name="PostCodeATest run in Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.PostCodeATest"/>
+        </classes>
+    </test>
+
+    <test name="PostCodeBTest run in Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.PostCodeBTest"/>
+            
+        </classes>
+    </test>
+    
+    <test name="PostCodeBTest run in Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.PostCodeBTest"/>
+        </classes>
+    </test>        
+</suite>
