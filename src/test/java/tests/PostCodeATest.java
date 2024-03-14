@@ -14,18 +14,17 @@ public class PostCodeATest extends TestDriver {
 	
 	@Test
 	public void runTest() throws InterruptedException {
-		driver.get(appUrl + "/checkViaDatabase/W5 1AT");
-		
-		new WebDriverWait(driver, Duration.ofMillis(5000)).until(
-				ExpectedConditions.visibilityOf(driver.findElement(
-						By.xpath("//body")
-						)
-				)
-		);
-		
-		driver.findElements(
-				By.xpath("//*[contains(text(), \'W5 1AT\')]")
-		);	
+	    driver.get(appUrl + "/checkViaDatabase/W5 1AT");
+	
+	    new WebDriverWait(driver, Duration.ofMillis(5000)).until(
+	        ExpectedConditions.visibilityOf(driver.findElement(
+		        By.xpath("//body")
+		    )
+	        )
+	    );
+	
+	    driver.findElements(
+	        By.xpath("//*[contains(text(), \'W5 1AT\')]")
+	    );	
 	}
-
 }
