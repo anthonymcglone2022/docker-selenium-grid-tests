@@ -22,22 +22,22 @@ public class TestDriver {
 	@Parameters({"browser"})
 	public void setUpDriver(String browser) throws MalformedURLException {
 		
-		// TODO Move entire URL out to the dockerenvvars.bat/.sh env setting script
-		this.appUrl = "http://" + System.getenv("APP_IP") + ":9191";
-		String completeURL = "http://" + System.getenv("GRID_URL") +":4444/wd/hub";
+	    // TODO Move entire URL out to the dockerenvvars.bat/.sh env setting script
+	    this.appUrl = "http://" + System.getenv("APP_IP") + ":9191";
+	    String completeURL = "http://" + System.getenv("GRID_URL") +":4444/wd/hub";
 
-		if (browser.equalsIgnoreCase("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			this.driver = new RemoteWebDriver(new URL(completeURL), options);
-		} else if (browser.equalsIgnoreCase("firefox")) {
-			FirefoxOptions options = new FirefoxOptions();
-			this.driver = new RemoteWebDriver(new URL(completeURL), options);
-		}	
+	    if (browser.equalsIgnoreCase("chrome")) {
+		ChromeOptions options = new ChromeOptions();
+		this.driver = new RemoteWebDriver(new URL(completeURL), options);
+	    } else if (browser.equalsIgnoreCase("firefox")) {
+		FirefoxOptions options = new FirefoxOptions();
+		this.driver = new RemoteWebDriver(new URL(completeURL), options);
+	    }	
 	}
 	
 	@AfterTest
 	public void quitDriver() {
-		this.driver.quit();	
+	    this.driver.quit();	
 	}
 	
 }
